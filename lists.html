@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists - Most Recommended Podcasts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f8fafc;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: #666;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #1e3a8a;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 60px 0 40px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Category Section */
+        .category-section {
+            padding: 48px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 24px;
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+        }
+
+        .lists-carousel {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 8px 0 16px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .lists-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 2px solid #1e3a8a;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #1e3a8a;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 10;
+            font-weight: 700;
+        }
+
+        .carousel-btn:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .carousel-btn.prev {
+            left: -20px;
+        }
+
+        .carousel-btn.next {
+            right: -20px;
+        }
+
+        /* List Card */
+        .list-card {
+            flex: 0 0 auto;
+            width: 300px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .list-card:hover {
+            border-color: #1e3a8a;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .publication-art {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .list-content {
+            padding: 20px;
+        }
+
+        .list-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .list-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            padding: 48px 0 24px;
+            margin-top: 60px;
+        }
+
+        .footer-logo-placeholder {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #93c5fd;
+            margin-bottom: 32px;
+            padding: 16px;
+            border: 2px dashed #3b5998;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: #bfdbfe;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #93c5fd;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            .list-card {
+                width: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">MostRecommendedPodcasts</a>
+                <nav>
+                    <a href="people.html">People</a>
+                    <a href="lists.html" class="active">Lists</a>
+                    <a href="topics.html">Topics</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Lists</h1>
+            <p>Curated podcast collections from publications, media outlets, and enthusiasts</p>
+        </div>
+    </section>
+
+    <!-- All Category -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">All</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('all', -1)">‹</button>
+                <div class="lists-carousel" id="carousel-all">
+                    <a href="list-nyt-best.html" class="list-card">
+                        <div class="publication-art">📰</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Best Business Podcasts</h3>
+                            <p class="list-description">The New York Times' selection of the most insightful business podcasts</p>
+                        </div>
+                    </a>
+                    <a href="list-wired-tech.html" class="list-card">
+                        <div class="publication-art">💻</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Essential Tech Podcasts</h3>
+                            <p class="list-description">Wired's guide to understanding technology and innovation</p>
+                        </div>
+                    </a>
+                    <a href="list-atlantic-culture.html" class="list-card">
+                        <div class="publication-art">🎭</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Culture & Society</h3>
+                            <p class="list-description">The Atlantic's picks for podcasts exploring culture and society</p>
+                        </div>
+                    </a>
+                    <a href="list-spotify-trending.html" class="list-card">
+                        <div class="publication-art">🎵</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Trending This Month</h3>
+                            <p class="list-description">Spotify's most popular podcasts gaining momentum</p>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('all', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Major Publications Category -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">Major Publications</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('publications', -1)">‹</button>
+                <div class="lists-carousel" id="carousel-publications">
+                    <a href="list-nyt-best.html" class="list-card">
+                        <div class="publication-art">📰</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Best Business Podcasts</h3>
+                            <p class="list-description">The New York Times' selection of the most insightful business podcasts</p>
+                        </div>
+                    </a>
+                    <a href="list-atlantic-culture.html" class="list-card">
+                        <div class="publication-art">🎭</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Culture & Society</h3>
+                            <p class="list-description">The Atlantic's picks for podcasts exploring culture and society</p>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('publications', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Media Category -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">Industry Media</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('industry', -1)">‹</button>
+                <div class="lists-carousel" id="carousel-industry">
+                    <a href="list-wired-tech.html" class="list-card">
+                        <div class="publication-art">💻</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Essential Tech Podcasts</h3>
+                            <p class="list-description">Wired's guide to understanding technology and innovation</p>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('industry', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enthusiasts Category -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">Enthusiasts</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('enthusiasts', -1)">‹</button>
+                <div class="lists-carousel" id="carousel-enthusiasts">
+                    <a href="list-spotify-trending.html" class="list-card">
+                        <div class="publication-art">🎵</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Trending This Month</h3>
+                            <p class="list-description">Spotify's most popular podcasts gaining momentum</p>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('enthusiasts', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo-placeholder">
+                [LOGO PLACEHOLDER]
+            </div>
+            <nav class="footer-nav">
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="submit.html">Submit a Recommendation</a>
+            </nav>
+            <p class="copyright">© 2024 Most Recommended Podcasts. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollCarousel(category, direction) {
+            const carousel = document.getElementById(`carousel-${category}`);
+            const scrollAmount = 600;
+            
+            if (direction === 1) {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            } else {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

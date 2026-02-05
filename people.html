@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - Most Recommended Podcasts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f8fafc;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: #666;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #1e3a8a;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 60px 0 40px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Category Section */
+        .category-section {
+            padding: 48px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+        }
+
+        .people-carousel {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 8px 0 16px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .people-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 2px solid #1e3a8a;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #1e3a8a;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 10;
+            font-weight: 700;
+        }
+
+        .carousel-btn:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .carousel-btn.prev {
+            left: -20px;
+        }
+
+        .carousel-btn.next {
+            right: -20px;
+        }
+
+        /* Person Card */
+        .person-card {
+            flex: 0 0 auto;
+            width: 280px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .person-card:hover {
+            border-color: #1e3a8a;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .person-portrait {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .person-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .person-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .person-count {
+            font-size: 13px;
+            color: #1e3a8a;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            padding: 48px 0 24px;
+            margin-top: 60px;
+        }
+
+        .footer-logo-placeholder {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #93c5fd;
+            margin-bottom: 32px;
+            padding: 16px;
+            border: 2px dashed #3b5998;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: #bfdbfe;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #93c5fd;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            .person-card {
+                width: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">MostRecommendedPodcasts</a>
+                <nav>
+                    <a href="people.html" class="active">People</a>
+                    <a href="lists.html">Lists</a>
+                    <a href="topics.html">Topics</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>People</h1>
+            <p>Discover podcast recommendations from influential people across various industries</p>
+        </div>
+    </section>
+
+    <!-- All Category -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <h2 class="category-title">All</h2>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('all', -1)">‹</button>
+                <div class="people-carousel" id="carousel-all">
+                    <a href="person-tim-ferriss.html" class="person-card">
+                        <div class="person-portrait">TF</div>
+                        <h3 class="person-name">Tim Ferriss</h3>
+                        <p class="person-description">Author, entrepreneur, and podcast host</p>
+                        <p class="person-count">42 recommendations</p>
+                    </a>
+                    <a href="person-naval-ravikant.html" class="person-card">
+                        <div class="person-portrait">NR</div>
+                        <h3 class="person-name">Naval Ravikant</h3>
+                        <p class="person-description">Entrepreneur and angel investor</p>
+                        <p class="person-count">28 recommendations</p>
+                    </a>
+                    <a href="person-brene-brown.html" class="person-card">
+                        <div class="person-portrait">BB</div>
+                        <h3 class="person-name">Brené Brown</h3>
+                        <p class="person-description">Research professor and author</p>
+                        <p class="person-count">31 recommendations</p>
+                    </a>
+                    <a href="person-sam-harris.html" class="person-card">
+                        <div class="person-portrait">SH</div>
+                        <h3 class="person-name">Sam Harris</h3>
+                        <p class="person-description">Neuroscientist and philosopher</p>
+                        <p class="person-count">35 recommendations</p>
+                    </a>
+                    <a href="person-malcolm-gladwell.html" class="person-card">
+                        <div class="person-portrait">MG</div>
+                        <h3 class="person-name">Malcolm Gladwell</h3>
+                        <p class="person-description">Author and journalist</p>
+                        <p class="person-count">24 recommendations</p>
+                    </a>
+                    <a href="person-esther-perel.html" class="person-card">
+                        <div class="person-portrait">EP</div>
+                        <h3 class="person-name">Esther Perel</h3>
+                        <p class="person-description">Psychotherapist and author</p>
+                        <p class="person-count">19 recommendations</p>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('all', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrepreneurs Category -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <h2 class="category-title">Entrepreneurs</h2>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('entrepreneurs', -1)">‹</button>
+                <div class="people-carousel" id="carousel-entrepreneurs">
+                    <a href="person-tim-ferriss.html" class="person-card">
+                        <div class="person-portrait">TF</div>
+                        <h3 class="person-name">Tim Ferriss</h3>
+                        <p class="person-description">Author, entrepreneur, and podcast host</p>
+                        <p class="person-count">42 recommendations</p>
+                    </a>
+                    <a href="person-naval-ravikant.html" class="person-card">
+                        <div class="person-portrait">NR</div>
+                        <h3 class="person-name">Naval Ravikant</h3>
+                        <p class="person-description">Entrepreneur and angel investor</p>
+                        <p class="person-count">28 recommendations</p>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('entrepreneurs', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Category -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <h2 class="category-title">Sports</h2>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('sports', -1)">‹</button>
+                <div class="people-carousel" id="carousel-sports">
+                    <a href="person-simon-sinek.html" class="person-card">
+                        <div class="person-portrait">SS</div>
+                        <h3 class="person-name">Simon Sinek</h3>
+                        <p class="person-description">Leadership expert and motivational speaker</p>
+                        <p class="person-count">22 recommendations</p>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('sports', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Category -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <h2 class="category-title">Academics</h2>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('academics', -1)">‹</button>
+                <div class="people-carousel" id="carousel-academics">
+                    <a href="person-brene-brown.html" class="person-card">
+                        <div class="person-portrait">BB</div>
+                        <h3 class="person-name">Brené Brown</h3>
+                        <p class="person-description">Research professor and author</p>
+                        <p class="person-count">31 recommendations</p>
+                    </a>
+                    <a href="person-sam-harris.html" class="person-card">
+                        <div class="person-portrait">SH</div>
+                        <h3 class="person-name">Sam Harris</h3>
+                        <p class="person-description">Neuroscientist and philosopher</p>
+                        <p class="person-count">35 recommendations</p>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('academics', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Celebrities Category -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <h2 class="category-title">Celebrities</h2>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('celebrities', -1)">‹</button>
+                <div class="people-carousel" id="carousel-celebrities">
+                    <a href="person-malcolm-gladwell.html" class="person-card">
+                        <div class="person-portrait">MG</div>
+                        <h3 class="person-name">Malcolm Gladwell</h3>
+                        <p class="person-description">Author and journalist</p>
+                        <p class="person-count">24 recommendations</p>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('celebrities', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Influencers Category -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <h2 class="category-title">Influencers</h2>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('influencers', -1)">‹</button>
+                <div class="people-carousel" id="carousel-influencers">
+                    <a href="person-esther-perel.html" class="person-card">
+                        <div class="person-portrait">EP</div>
+                        <h3 class="person-name">Esther Perel</h3>
+                        <p class="person-description">Psychotherapist and author</p>
+                        <p class="person-count">19 recommendations</p>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('influencers', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Others Category -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header">
+                <h2 class="category-title">Others</h2>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('others', -1)">‹</button>
+                <div class="people-carousel" id="carousel-others">
+                    <a href="person-ryan-holiday.html" class="person-card">
+                        <div class="person-portrait">RH</div>
+                        <h3 class="person-name">Ryan Holiday</h3>
+                        <p class="person-description">Author and marketer</p>
+                        <p class="person-count">27 recommendations</p>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('others', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo-placeholder">
+                [LOGO PLACEHOLDER]
+            </div>
+            <nav class="footer-nav">
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="submit.html">Submit a Recommendation</a>
+            </nav>
+            <p class="copyright">© 2024 Most Recommended Podcasts. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollCarousel(category, direction) {
+            const carousel = document.getElementById(`carousel-${category}`);
+            const scrollAmount = 600;
+            
+            if (direction === 1) {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            } else {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
