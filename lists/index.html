@@ -88,6 +88,7 @@
         .category-section {
             padding: 48px 0;
             border-bottom: 1px solid #e5e7eb;
+            scroll-margin-top: 80px;
         }
 
         .category-title {
@@ -258,11 +259,11 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">MostRecommendedPodcasts</a>
+                <a href="/" class="logo">MostRecommendedPodcasts</a>
                 <nav>
-                    <a href="people.html">People</a>
-                    <a href="lists.html" class="active">Lists</a>
-                    <a href="topics.html">Topics</a>
+                    <a href="/people">People</a>
+                    <a href="/lists" class="active">Lists</a>
+                    <a href="/topics">Topics</a>
                 </nav>
             </div>
         </div>
@@ -277,34 +278,34 @@
     </section>
 
     <!-- All Category -->
-    <section class="category-section">
+    <section class="category-section" id="all">
         <div class="container">
             <h2 class="category-title">All</h2>
             <div class="carousel-container">
                 <button class="carousel-btn prev" onclick="scrollCarousel('all', -1)">‹</button>
                 <div class="lists-carousel" id="carousel-all">
-                    <a href="list-nyt-best.html" class="list-card">
+                    <a href="/lists/nyt-best-business" class="list-card">
                         <div class="publication-art">📰</div>
                         <div class="list-content">
                             <h3 class="list-name">Best Business Podcasts</h3>
                             <p class="list-description">The New York Times' selection of the most insightful business podcasts</p>
                         </div>
                     </a>
-                    <a href="list-wired-tech.html" class="list-card">
+                    <a href="/lists/wired-tech" class="list-card">
                         <div class="publication-art">💻</div>
                         <div class="list-content">
                             <h3 class="list-name">Essential Tech Podcasts</h3>
                             <p class="list-description">Wired's guide to understanding technology and innovation</p>
                         </div>
                     </a>
-                    <a href="list-atlantic-culture.html" class="list-card">
+                    <a href="/lists/atlantic-culture" class="list-card">
                         <div class="publication-art">🎭</div>
                         <div class="list-content">
                             <h3 class="list-name">Culture & Society</h3>
                             <p class="list-description">The Atlantic's picks for podcasts exploring culture and society</p>
                         </div>
                     </a>
-                    <a href="list-spotify-trending.html" class="list-card">
+                    <a href="/lists/spotify-trending" class="list-card">
                         <div class="publication-art">🎵</div>
                         <div class="list-content">
                             <h3 class="list-name">Trending This Month</h3>
@@ -318,20 +319,20 @@
     </section>
 
     <!-- Major Publications Category -->
-    <section class="category-section">
+    <section class="category-section" id="major-publications">
         <div class="container">
             <h2 class="category-title">Major Publications</h2>
             <div class="carousel-container">
                 <button class="carousel-btn prev" onclick="scrollCarousel('publications', -1)">‹</button>
                 <div class="lists-carousel" id="carousel-publications">
-                    <a href="list-nyt-best.html" class="list-card">
+                    <a href="/lists/nyt-best-business" class="list-card">
                         <div class="publication-art">📰</div>
                         <div class="list-content">
                             <h3 class="list-name">Best Business Podcasts</h3>
                             <p class="list-description">The New York Times' selection of the most insightful business podcasts</p>
                         </div>
                     </a>
-                    <a href="list-atlantic-culture.html" class="list-card">
+                    <a href="/lists/atlantic-culture" class="list-card">
                         <div class="publication-art">🎭</div>
                         <div class="list-content">
                             <h3 class="list-name">Culture & Society</h3>
@@ -344,14 +345,34 @@
         </div>
     </section>
 
-    <!-- Industry Media Category -->
-    <section class="category-section">
+    <!-- Social Media Category -->
+    <section class="category-section" id="social-media">
         <div class="container">
-            <h2 class="category-title">Industry Media</h2>
+            <h2 class="category-title">Social Media</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="scrollCarousel('social', -1)">‹</button>
+                <div class="lists-carousel" id="carousel-social">
+                    <a href="/lists/twitter-recommendations" class="list-card">
+                        <div class="publication-art">🐦</div>
+                        <div class="list-content">
+                            <h3 class="list-name">Twitter Recommendations</h3>
+                            <p class="list-description">Most recommended podcasts from influential Twitter threads</p>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarousel('social', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Category -->
+    <section class="category-section" id="industry">
+        <div class="container">
+            <h2 class="category-title">Industry</h2>
             <div class="carousel-container">
                 <button class="carousel-btn prev" onclick="scrollCarousel('industry', -1)">‹</button>
                 <div class="lists-carousel" id="carousel-industry">
-                    <a href="list-wired-tech.html" class="list-card">
+                    <a href="/lists/wired-tech" class="list-card">
                         <div class="publication-art">💻</div>
                         <div class="list-content">
                             <h3 class="list-name">Essential Tech Podcasts</h3>
@@ -365,13 +386,13 @@
     </section>
 
     <!-- Enthusiasts Category -->
-    <section class="category-section">
+    <section class="category-section" id="enthusiasts">
         <div class="container">
             <h2 class="category-title">Enthusiasts</h2>
             <div class="carousel-container">
                 <button class="carousel-btn prev" onclick="scrollCarousel('enthusiasts', -1)">‹</button>
                 <div class="lists-carousel" id="carousel-enthusiasts">
-                    <a href="list-spotify-trending.html" class="list-card">
+                    <a href="/lists/spotify-trending" class="list-card">
                         <div class="publication-art">🎵</div>
                         <div class="list-content">
                             <h3 class="list-name">Trending This Month</h3>
@@ -391,11 +412,11 @@
                 [LOGO PLACEHOLDER]
             </div>
             <nav class="footer-nav">
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="submit.html">Submit a Recommendation</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/submit">Submit a Recommendation</a>
             </nav>
             <p class="copyright">© 2024 Most Recommended Podcasts. All rights reserved.</p>
         </div>

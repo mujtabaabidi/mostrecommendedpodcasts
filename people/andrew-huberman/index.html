@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Business Podcasts - NYT - Most Recommended Podcasts</title>
+    <title>Andrew Huberman - Most Recommended Podcasts</title>
     <style>
         * {
             margin: 0;
@@ -29,7 +29,6 @@
             color: inherit;
         }
 
-        /* Header */
         header {
             padding: 20px 0;
             border-bottom: 1px solid #e5e7eb;
@@ -64,20 +63,19 @@
             color: #1e3a8a;
         }
 
-        /* List Header */
-        .list-header {
+        .person-header {
             padding: 60px 0;
             background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
             color: white;
         }
 
-        .list-header-content {
+        .person-header-content {
             display: flex;
             gap: 40px;
             align-items: center;
         }
 
-        .publication-art-large {
+        .person-portrait-large {
             width: 150px;
             height: 150px;
             border-radius: 12px;
@@ -85,24 +83,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 64px;
+            font-size: 52px;
+            font-weight: 700;
+            color: #1e3a8a;
             flex-shrink: 0;
         }
 
-        .list-info h1 {
+        .person-info h1 {
             font-size: 42px;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
-        .list-publication {
+        .person-industry {
             font-size: 16px;
             color: #bfdbfe;
             margin-bottom: 16px;
             font-weight: 500;
         }
 
-        .list-description {
+        .person-bio {
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 20px;
@@ -123,7 +123,10 @@
             font-weight: 500;
         }
 
-        /* Podcasts Section */
+        .topic-tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
         .podcasts-section {
             padding: 60px 0;
         }
@@ -135,7 +138,6 @@
             margin-bottom: 40px;
         }
 
-        /* Podcast Row */
         .podcast-row {
             display: flex;
             gap: 32px;
@@ -189,17 +191,12 @@
             margin-bottom: 12px;
         }
 
-        .podcast-reason {
-            font-size: 14px;
+        .podcast-source {
+            font-size: 13px;
             color: #1e3a8a;
-            font-style: italic;
-            padding: 12px;
-            background: #eff6ff;
-            border-radius: 6px;
-            border-left: 3px solid #1e3a8a;
+            font-weight: 600;
         }
 
-        /* Footer */
         footer {
             background: #1e3a8a;
             color: white;
@@ -244,12 +241,12 @@
         }
 
         @media (max-width: 768px) {
-            .list-header-content {
+            .person-header-content {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .list-info h1 {
+            .person-info h1 {
                 font-size: 32px;
             }
 
@@ -264,109 +261,105 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">MostRecommendedPodcasts</a>
+                <a href="/" class="logo">MostRecommendedPodcasts</a>
                 <nav>
-                    <a href="people.html">People</a>
-                    <a href="lists.html">Lists</a>
-                    <a href="topics.html">Topics</a>
+                    <a href="/people">People</a>
+                    <a href="/lists">Lists</a>
+                    <a href="/topics">Topics</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- List Header -->
-    <section class="list-header">
+    <section class="person-header">
         <div class="container">
-            <div class="list-header-content">
-                <div class="publication-art-large">📰</div>
-                <div class="list-info">
-                    <h1>Best Business Podcasts</h1>
-                    <p class="list-publication">The New York Times</p>
-                    <p class="list-description">The New York Times' curated selection of the most insightful and impactful business podcasts that every entrepreneur, executive, and business enthusiast should be listening to.</p>
+            <div class="person-header-content">
+                <div class="person-portrait-large">AH</div>
+                <div class="person-info">
+                    <h1>Andrew Huberman</h1>
+                    <p class="person-industry">Entrepreneur</p>
+                    <p class="person-bio">Andrew Huberman is a neuroscientist and tenured professor in the Department of Neurobiology at Stanford University School of Medicine. He hosts the popular Huberman Lab podcast.</p>
                     <div class="topic-tags">
-                        <span class="topic-tag">Business</span>
-                        <span class="topic-tag">Entrepreneurship</span>
-                        <span class="topic-tag">Finance</span>
-                        <span class="topic-tag">Leadership</span>
+                        <a href="/topics/business" class="topic-tag">Business</a>
+                        <a href="/topics/self-improvement" class="topic-tag">Self-Improvement</a>
+                        <a href="/topics/health-fitness" class="topic-tag">Health & Fitness</a>
+                        <a href="/topics/technology" class="topic-tag">Technology</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recommended Podcasts -->
     <section class="podcasts-section">
         <div class="container">
             <h2 class="section-title">Recommended Podcasts</h2>
 
             <div class="podcast-row">
-                <div class="podcast-artwork">📊</div>
+                <div class="podcast-artwork">🎙️</div>
                 <div class="podcast-details">
-                    <h3 class="podcast-name">How I Built This</h3>
-                    <p class="podcast-industry">Business • Entrepreneurship</p>
-                    <p class="podcast-description">Guy Raz dives into the stories behind some of the world's best known companies. How I Built This weaves a narrative journey about innovators, entrepreneurs and idealists.</p>
-                    <p class="podcast-reason">"Essential listening for anyone interested in understanding the real journey of building a successful company from the ground up." - NYT Business Desk</p>
+                    <h3 class="podcast-name">Huberman Lab</h3>
+                    <p class="podcast-industry">Science • Health</p>
+                    <p class="podcast-description">Neuroscientist Andrew Huberman discusses science-based tools for everyday life. Topics include neuroscience, fitness, nutrition, mental health, and productivity.</p>
+                    <p class="podcast-source">Source: Interview (2023)</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">🧠</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">Making Sense</h3>
+                    <p class="podcast-industry">Philosophy • Science</p>
+                    <p class="podcast-description">Sam Harris explores the most important questions about the human mind, society, and current events through conversations with thought leaders.</p>
+                    <p class="podcast-source">Source: Blog Post (2022)</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">📚</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">The Knowledge Project</h3>
+                    <p class="podcast-industry">Business • Education</p>
+                    <p class="podcast-description">Shane Parrish interviews world-class performers to uncover the frameworks that help them master their craft and live more meaningful lives.</p>
+                    <p class="podcast-source">Source: Twitter Recommendation (2023)</p>
                 </div>
             </div>
 
             <div class="podcast-row">
                 <div class="podcast-artwork">💼</div>
                 <div class="podcast-details">
-                    <h3 class="podcast-name">Masters of Scale</h3>
-                    <p class="podcast-industry">Business • Technology</p>
-                    <p class="podcast-description">Reid Hoffman, co-founder of LinkedIn, tests his theories of how companies scale from zero to a gazillion, in unconventional interviews with legendary leaders.</p>
-                    <p class="podcast-reason">"Hoffman's insights from Silicon Valley's most successful scale-ups offer invaluable lessons for businesses at any stage." - NYT Tech Columnist</p>
-                </div>
-            </div>
-
-            <div class="podcast-row">
-                <div class="podcast-artwork">📈</div>
-                <div class="podcast-details">
-                    <h3 class="podcast-name">The Daily</h3>
-                    <p class="podcast-industry">News • Business</p>
-                    <p class="podcast-description">This is what the news should sound like. The biggest stories of our time, told by the best journalists in the world. Hosted by Michael Barbaro and Sabrina Tavernise.</p>
-                    <p class="podcast-reason">"Critical for staying informed on how major news events impact the business world and economy." - NYT Editorial Board</p>
-                </div>
-            </div>
-
-            <div class="podcast-row">
-                <div class="podcast-artwork">💰</div>
-                <div class="podcast-details">
-                    <h3 class="podcast-name">Planet Money</h3>
-                    <p class="podcast-industry">Economics • Finance</p>
-                    <p class="podcast-description">The economy explained. Imagine you could call up a friend and say, "Meet me at the bar and tell me what's going on with the economy." That's what we're going for at Planet Money.</p>
-                    <p class="podcast-reason">"Makes complex economic concepts accessible and entertaining, perfect for understanding market forces." - NYT Economics Editor</p>
+                    <h3 class="podcast-name">Invest Like the Best</h3>
+                    <p class="podcast-industry">Business • Investing</p>
+                    <p class="podcast-description">Patrick O'Shaughnessy explores the investing landscape through conversations with the best investors and entrepreneurs in the world.</p>
+                    <p class="podcast-source">Source: Podcast Interview (2023)</p>
                 </div>
             </div>
 
             <div class="podcast-row">
                 <div class="podcast-artwork">🎯</div>
                 <div class="podcast-details">
-                    <h3 class="podcast-name">The Prof G Pod</h3>
-                    <p class="podcast-industry">Business • Marketing</p>
-                    <p class="podcast-description">Scott Galloway offers unfiltered insights and predictions about business, technology and the future. No mercy, no malice.</p>
-                    <p class="podcast-reason">"Galloway's sharp analysis cuts through industry hype to reveal what's really driving tech and business trends." - NYT Business Reporter</p>
+                    <h3 class="podcast-name">Deep Questions with Cal Newport</h3>
+                    <p class="podcast-industry">Productivity • Self-Improvement</p>
+                    <p class="podcast-description">Cal Newport answers questions about cultivating a deep life in a distracted world, covering topics like productivity, focus, and meaningful work.</p>
+                    <p class="podcast-source">Source: Book Mention (2022)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-logo-placeholder">
                 [LOGO PLACEHOLDER]
             </div>
             <nav class="footer-nav">
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="submit.html">Submit a Recommendation</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/submit">Submit a Recommendation</a>
             </nav>
             <p class="copyright">© 2024 Most Recommended Podcasts. All rights reserved.</p>
         </div>

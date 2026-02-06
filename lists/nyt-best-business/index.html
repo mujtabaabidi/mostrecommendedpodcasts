@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Business Podcasts - NYT - Most Recommended Podcasts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f8fafc;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: #666;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #1e3a8a;
+        }
+
+        /* List Header */
+        .list-header {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+        }
+
+        .list-header-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .publication-art-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            flex-shrink: 0;
+        }
+
+        .list-info h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .list-publication {
+            font-size: 16px;
+            color: #bfdbfe;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .list-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #e0e7ff;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .topic-tag {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .topic-tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Podcasts Section */
+        .podcasts-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 40px;
+        }
+
+        /* Podcast Row */
+        .podcast-row {
+            display: flex;
+            gap: 32px;
+            padding: 24px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: all 0.2s;
+        }
+
+        .podcast-row:hover {
+            border-color: #1e3a8a;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+        }
+
+        .podcast-artwork {
+            width: 140px;
+            height: 140px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .podcast-details {
+            flex: 1;
+        }
+
+        .podcast-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .podcast-industry {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .podcast-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .podcast-reason {
+            font-size: 14px;
+            color: #1e3a8a;
+            font-style: italic;
+            padding: 12px;
+            background: #eff6ff;
+            border-radius: 6px;
+            border-left: 3px solid #1e3a8a;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            padding: 48px 0 24px;
+            margin-top: 60px;
+        }
+
+        .footer-logo-placeholder {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #93c5fd;
+            margin-bottom: 32px;
+            padding: 16px;
+            border: 2px dashed #3b5998;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: #bfdbfe;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #93c5fd;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .list-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .list-info h1 {
+                font-size: 32px;
+            }
+
+            .podcast-row {
+                flex-direction: column;
+            }
+
+            .podcast-artwork {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">MostRecommendedPodcasts</a>
+                <nav>
+                    <a href="/people">People</a>
+                    <a href="/lists">Lists</a>
+                    <a href="/topics">Topics</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- List Header -->
+    <section class="list-header">
+        <div class="container">
+            <div class="list-header-content">
+                <div class="publication-art-large">📰</div>
+                <div class="list-info">
+                    <h1>Best Business Podcasts</h1>
+                    <p class="list-publication">The New York Times</p>
+                    <p class="list-description">The New York Times' curated selection of the most insightful and impactful business podcasts that every entrepreneur, executive, and business enthusiast should be listening to.</p>
+                    <div class="topic-tags">
+                        <a href="/topics/business" class="topic-tag">Business</a>
+                        <a href="/topics/entrepreneurship" class="topic-tag">Entrepreneurship</a>
+                        <a href="/topics/finance" class="topic-tag">Finance</a>
+                        <a href="/topics/leadership" class="topic-tag">Leadership</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Podcasts -->
+    <section class="podcasts-section">
+        <div class="container">
+            <h2 class="section-title">Recommended Podcasts</h2>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">📊</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">How I Built This</h3>
+                    <p class="podcast-industry">Business • Entrepreneurship</p>
+                    <p class="podcast-description">Guy Raz dives into the stories behind some of the world's best known companies. How I Built This weaves a narrative journey about innovators, entrepreneurs and idealists.</p>
+                    <p class="podcast-reason">"Essential listening for anyone interested in understanding the real journey of building a successful company from the ground up." - NYT Business Desk</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">💼</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">Masters of Scale</h3>
+                    <p class="podcast-industry">Business • Technology</p>
+                    <p class="podcast-description">Reid Hoffman, co-founder of LinkedIn, tests his theories of how companies scale from zero to a gazillion, in unconventional interviews with legendary leaders.</p>
+                    <p class="podcast-reason">"Hoffman's insights from Silicon Valley's most successful scale-ups offer invaluable lessons for businesses at any stage." - NYT Tech Columnist</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">📈</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">The Daily</h3>
+                    <p class="podcast-industry">News • Business</p>
+                    <p class="podcast-description">This is what the news should sound like. The biggest stories of our time, told by the best journalists in the world. Hosted by Michael Barbaro and Sabrina Tavernise.</p>
+                    <p class="podcast-reason">"Critical for staying informed on how major news events impact the business world and economy." - NYT Editorial Board</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">💰</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">Planet Money</h3>
+                    <p class="podcast-industry">Economics • Finance</p>
+                    <p class="podcast-description">The economy explained. Imagine you could call up a friend and say, "Meet me at the bar and tell me what's going on with the economy." That's what we're going for at Planet Money.</p>
+                    <p class="podcast-reason">"Makes complex economic concepts accessible and entertaining, perfect for understanding market forces." - NYT Economics Editor</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">🎯</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">The Prof G Pod</h3>
+                    <p class="podcast-industry">Business • Marketing</p>
+                    <p class="podcast-description">Scott Galloway offers unfiltered insights and predictions about business, technology and the future. No mercy, no malice.</p>
+                    <p class="podcast-reason">"Galloway's sharp analysis cuts through industry hype to reveal what's really driving tech and business trends." - NYT Business Reporter</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo-placeholder">
+                [LOGO PLACEHOLDER]
+            </div>
+            <nav class="footer-nav">
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/submit">Submit a Recommendation</a>
+            </nav>
+            <p class="copyright">© 2024 Most Recommended Podcasts. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
