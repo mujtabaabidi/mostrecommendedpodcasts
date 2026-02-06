@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe Rogan - Most Recommended Podcasts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f8fafc;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: #666;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #1e3a8a;
+        }
+
+        /* Person Header */
+        .person-header {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+        }
+
+        .person-header-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .person-portrait-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            font-weight: 700;
+            color: #1e3a8a;
+            flex-shrink: 0;
+        }
+
+        .person-info h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .person-industry {
+            font-size: 16px;
+            color: #bfdbfe;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .person-bio {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #e0e7ff;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .topic-tag {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .topic-tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Podcasts Section */
+        .podcasts-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 40px;
+        }
+
+        /* Podcast Row */
+        .podcast-row {
+            display: flex;
+            gap: 32px;
+            padding: 24px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: all 0.2s;
+        }
+
+        .podcast-row:hover {
+            border-color: #1e3a8a;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+        }
+
+        .podcast-artwork {
+            width: 140px;
+            height: 140px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .podcast-details {
+            flex: 1;
+        }
+
+        .podcast-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .podcast-industry {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .podcast-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .podcast-source {
+            font-size: 13px;
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            padding: 48px 0 24px;
+            margin-top: 60px;
+        }
+
+        .footer-logo-placeholder {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #93c5fd;
+            margin-bottom: 32px;
+            padding: 16px;
+            border: 2px dashed #3b5998;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: #bfdbfe;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #93c5fd;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .person-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .person-info h1 {
+                font-size: 32px;
+            }
+
+            .podcast-row {
+                flex-direction: column;
+            }
+
+            .podcast-artwork {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">MostRecommendedPodcasts</a>
+                <nav>
+                    <a href="/people">People</a>
+                    <a href="/lists">Lists</a>
+                    <a href="/topics">Topics</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Person Header -->
+    <section class="person-header">
+        <div class="container">
+            <div class="person-header-content">
+                <div class="person-portrait-large">JR</div>
+                <div class="person-info">
+                    <h1>Joe Rogan</h1>
+                    <p class="person-industry">Media Personality</p>
+                    <p class="person-bio">Joe Rogan is an American entrepreneur, investor, author, podcaster, and lifestyle guru. He is known for his 4-Hour self-help book series and hosts one of the most popular podcasts in the world, "The Tim Ferriss Show."</p>
+                    <div class="topic-tags">
+                        <a href="/topics/business" class="topic-tag">Business</a>
+                        <a href="/topics/self-improvement" class="topic-tag">Self-Improvement</a>
+                        <a href="/topics/health-fitness" class="topic-tag">Health & Fitness</a>
+                        <a href="/topics/technology" class="topic-tag">Technology</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Podcasts -->
+    <section class="podcasts-section">
+        <div class="container">
+            <h2 class="section-title">Recommended Podcasts</h2>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">🎙️</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">Huberman Lab</h3>
+                    <p class="podcast-industry">Science • Health</p>
+                    <p class="podcast-description">Neuroscientist Andrew Huberman discusses science-based tools for everyday life. Topics include neuroscience, fitness, nutrition, mental health, and productivity.</p>
+                    <p class="podcast-source">Source: Tim Ferriss Show Episode #521</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">🧠</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">Making Sense</h3>
+                    <p class="podcast-industry">Philosophy • Science</p>
+                    <p class="podcast-description">Sam Harris explores the most important questions about the human mind, society, and current events through conversations with thought leaders.</p>
+                    <p class="podcast-source">Source: The 4-Hour Work Week Blog Post</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">📚</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">The Knowledge Project</h3>
+                    <p class="podcast-industry">Business • Education</p>
+                    <p class="podcast-description">Shane Parrish interviews world-class performers to uncover the frameworks that help them master their craft and live more meaningful lives.</p>
+                    <p class="podcast-source">Source: Twitter Recommendation (2023)</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">💼</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">Invest Like the Best</h3>
+                    <p class="podcast-industry">Business • Investing</p>
+                    <p class="podcast-description">Patrick O'Shaughnessy explores the investing landscape through conversations with the best investors and entrepreneurs in the world.</p>
+                    <p class="podcast-source">Source: Tim Ferriss Show Episode #437</p>
+                </div>
+            </div>
+
+            <div class="podcast-row">
+                <div class="podcast-artwork">🎯</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">Deep Questions with Cal Newport</h3>
+                    <p class="podcast-industry">Productivity • Self-Improvement</p>
+                    <p class="podcast-description">Cal Newport answers questions about cultivating a deep life in a distracted world, covering topics like productivity, focus, and meaningful work.</p>
+                    <p class="podcast-source">Source: Tools of Titans Book</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo-placeholder">
+                [LOGO PLACEHOLDER]
+            </div>
+            <nav class="footer-nav">
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/submit">Submit a Recommendation</a>
+            </nav>
+            <p class="copyright">© 2024 Most Recommended Podcasts. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
