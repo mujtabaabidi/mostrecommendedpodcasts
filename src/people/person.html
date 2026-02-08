@@ -1,0 +1,52 @@
+---
+layout: base
+pagination:
+  data: people.people
+  size: 1
+  alias: person
+permalink: "/people/{{ person.id }}/"
+eleventyComputed:
+  title: "{{ person.name }}"
+---
+
+<section class="person-header">
+    <div class="container">
+        <div class="person-header-content">
+            <div class="person-portrait-large">{{ person.initials }}</div>
+            <div class="person-info">
+                <h1>{{ person.name }}</h1>
+                <p class="person-industry">{{ person.category }}</p>
+                <p class="person-bio">{{ person.bio }}</p>
+                <div class="topic-tags">
+                    {% for topicId in person.topics %}
+                        {% set topic = topics.topics | selectattr("id", "equalto", topicId) | first %}
+                        {% if topic %}
+                        <a href="/topics/{{ topicId }}" class="topic-tag">{{ topic.name }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="podcasts-section">
+    <div class="container">
+        <h2 class="section-title">Recommended Podcasts</h2>
+
+        {% for podcastId in person.podcasts %}
+            {% set podcast = podcasts.podcasts | selectattr("id", "equalto", podcastId) | first %}
+            {% if podcast %}
+            <div class="podcast-row">
+                <div class="podcast-artwork">{{ podcast.emoji }}</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">{{ podcast.name }}</h3>
+                    <p class="podcast-industry">{{ podcast.category }}</p>
+                    <p class="podcast-description">{{ podcast.description }}</p>
+                    <p class="podcast-source">Recommended by {{ person.name }}</p>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

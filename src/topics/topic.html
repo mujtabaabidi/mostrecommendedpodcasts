@@ -1,0 +1,37 @@
+---
+layout: base
+pagination:
+  data: topics.topics
+  size: 1
+  alias: topic
+permalink: "/topics/{{ topic.id }}/"
+eleventyComputed:
+  title: "{{ topic.name }} Podcasts"
+---
+
+<section class="topic-header">
+    <div class="container">
+        <div class="topic-icon-large">{{ topic.icon }}</div>
+        <h1>{{ topic.name }}</h1>
+        <p class="topic-description">{{ topic.description }}</p>
+    </div>
+</section>
+
+<section class="podcasts-section">
+    <div class="container">
+        <h2 class="section-title">Recommended Podcasts</h2>
+
+        {% for podcast in podcasts.podcasts %}
+            {% if topic.id in podcast.topics %}
+            <div class="podcast-row">
+                <div class="podcast-artwork">{{ podcast.emoji }}</div>
+                <div class="podcast-details">
+                    <h3 class="podcast-name">{{ podcast.name }}</h3>
+                    <p class="podcast-industry">{{ podcast.category }}</p>
+                    <p class="podcast-description">{{ podcast.description }}</p>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

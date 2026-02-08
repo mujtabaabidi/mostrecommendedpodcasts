@@ -1,106 +1,168 @@
-# Most Recommended Podcasts - Website Files
+# Most Recommended Podcasts - 11ty Refactor
 
-## Summary of Updates
+## What This Is
 
-All files have been updated according to your requirements:
+This is your website refactored to use 11ty (Eleventy) static site generator with JSON data files.
 
-### 1. ✅ Canonical URL Structure (without .html)
-- **Old:** `person-tim-ferriss.html`, `topic-business.html`
-- **New:** `/people/tim-ferriss/index.html`, `/topics/business/index.html`
-- URLs will display as: `/people/tim-ferriss`, `/topics/business`, etc.
+**Benefits:**
+- All content in JSON files (easy to manage)
+- Templates generate pages automatically
+- Add new person = add 10 lines of JSON (not 400 lines of HTML)
+- Same visual design, scalable architecture
 
-### 2. ✅ Cross-Linking Rules Applied
-- All person names link to `/people/{person-slug}`
-- All topic tags link to `/topics/{topic-slug}`
-- All list references link to `/lists/{list-slug}`
-- Navigation updated across all pages
+## Installation & Setup
 
-### 3. ✅ Featured People Pages Created (9 new pages)
-All with placeholder content matching Tim Ferriss format:
-- Naval Ravikant
-- Brené Brown
-- Sam Harris
-- Malcolm Gladwell
-- Esther Perel
-- Lex Fridman
-- Andrew Huberman
-- Simon Sinek
-- Ryan Holiday
+### 1. Install Dependencies
 
-### 4. ✅ Featured Topic Pages Created (5 new pages)
-All with placeholder content matching Business format:
-- Science
-- Technology
-- Self-Improvement
-- History
-- Philosophy
+```bash
+npm install
+```
 
-### 5. ✅ Lists Page Updated
-- Categories now match homepage: Major Publications, Social Media, Industry, Enthusiasts
-- Each category has an ID for anchor linking
-- Homepage Featured Lists now link to specific sections (e.g., `/lists#major-publications`)
+This installs 11ty and all required packages.
+
+### 2. Build the Site
+
+```bash
+npm run build
+```
+
+This generates your static HTML files in the `_site` directory.
+
+### 3. Preview Locally
+
+```bash
+npm run serve
+```
+
+Opens a local server at `http://localhost:8080` - you can see your site!
+
+### 4. Deploy to GitHub
+
+After building:
+
+```bash
+# Copy built files to root (for GitHub Pages)
+cp -r _site/* .
+
+# Commit and push
+git add .
+git commit -m "Deploy 11ty site"
+git push
+```
 
 ## File Structure
 
 ```
-/
-├── index.html (Homepage)
-├── people/
-│   ├── index.html (People landing page)
-│   ├── tim-ferriss/index.html
-│   ├── naval-ravikant/index.html
-│   ├── brene-brown/index.html
-│   ├── sam-harris/index.html
-│   ├── malcolm-gladwell/index.html
-│   ├── esther-perel/index.html
-│   ├── lex-fridman/index.html
-│   ├── andrew-huberman/index.html
-│   ├── simon-sinek/index.html
-│   └── ryan-holiday/index.html
-├── topics/
-│   ├── index.html (Topics landing page)
-│   ├── business/index.html
-│   ├── science/index.html
-│   ├── technology/index.html
-│   ├── self-improvement/index.html
-│   ├── history/index.html
-│   └── philosophy/index.html
-└── lists/
-    ├── index.html (Lists landing page)
-    └── nyt-best-business/index.html
+├── src/
+│   ├── _data/           # All your content (JSON)
+│   │   ├── people.json
+│   │   ├── podcasts.json
+│   │   └── topics.json
+│   ├── _layouts/        # Page templates
+│   │   └── base.html
+│   ├── _includes/       # Reusable components
+│   │   ├── header.html
+│   │   └── footer.html
+│   ├── css/
+│   │   └── styles.css
+│   ├── index.html       # Homepage
+│   ├── people/
+│   │   ├── index.html   # People listing
+│   │   └── person.html  # Person page template
+│   └── topics/
+│       ├── index.html   # Topics listing
+│       └── topic.html   # Topic page template
+├── .eleventy.js         # 11ty configuration
+└── package.json         # Dependencies & scripts
 ```
 
-## How to Upload to GitHub
+## How to Add Content
 
-1. Download all these files
-2. Create/navigate to your GitHub repository
-3. Upload the entire folder structure maintaining the directories
-4. GitHub Pages will automatically serve the `index.html` files
-5. Your URLs will work as: 
-   - `yoursite.com/people/tim-ferriss`
-   - `yoursite.com/topics/business`
-   - `yoursite.com/lists/nyt-best-business`
+### Add a New Person
 
-## Navigation Structure
+Edit `src/_data/people.json`:
 
-All pages include:
-- Consistent header with logo and navigation
-- Footer with links
-- Proper cross-linking between People, Lists, and Topics
-- Responsive design for mobile
+```json
+{
+  "id": "joe-rogan",
+  "name": "Joe Rogan",
+  "initials": "JR",
+  "category": "Podcaster",
+  "bio": "Joe Rogan is...",
+  "topics": ["business", "health-fitness"],
+  "podcasts": ["huberman-lab", "making-sense"]
+}
+```
 
-## Next Steps
+Run `npm run build` - new person page automatically created!
 
-To continue building:
-1. Add more people pages (follow existing format)
-2. Add more topic pages (follow existing format)
-3. Add more list pages (follow nyt-best-business format)
-4. Replace placeholder content with real podcast data
-5. Add actual podcast pages when ready
+### Add a New Podcast
 
-## Important Notes
+Edit `src/_data/podcasts.json`:
 
-- All links use root-relative paths (e.g., `/people/tim-ferriss`)
-- Topic tags in person pages link to respective topic pages
-- Lists page sections have IDs for anchor linking from homepage
-- Podcast pages were intentionally skipped per your instructions
+```json
+{
+  "id": "new-podcast",
+  "name": "New Podcast Name",
+  "emoji": "🎙️",
+  "category": "Business • Tech",
+  "description": "Description here...",
+  "topics": ["business", "technology"]
+}
+```
+
+### Add a New Topic
+
+Edit `src/_data/topics.json`:
+
+```json
+{
+  "id": "health",
+  "name": "Health",
+  "icon": "🏥",
+  "description": "Health podcasts..."
+}
+```
+
+## NPM Scripts
+
+- `npm run build` - Build the site
+- `npm run serve` - Build + run local server
+- `npm start` - Same as serve
+
+## What Changed
+
+**Before:**
+- 10 separate HTML files for people
+- Manual updates everywhere
+- Duplicate code
+
+**After:**
+- 1 JSON file with all people data
+- 1 template generates all person pages
+- Update once, changes everywhere
+
+## Deployment
+
+Your site builds to `_site/` directory.
+
+For GitHub Pages, you'll need to either:
+
+**Option A:** Copy _site contents to root
+```bash
+cp -r _site/* .
+git add .
+git commit -m "Deploy"
+git push
+```
+
+**Option B:** Use GitHub Actions (recommended)
+Create `.github/workflows/build.yml` - I can provide this if needed.
+
+## Need Help?
+
+- Run `npm run serve` to test locally
+- Check `_site` directory to see generated HTML
+- All data is in `src/_data/*.json`
+- All templates are in `src/**/*.html`
+

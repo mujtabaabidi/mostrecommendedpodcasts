@@ -1,0 +1,84 @@
+{
+  "podcasts": [
+    {
+      "id": "huberman-lab",
+      "name": "Huberman Lab",
+      "emoji": "🎙️",
+      "category": "Science • Health",
+      "description": "Neuroscientist Andrew Huberman discusses science-based tools for everyday life. Topics include neuroscience, fitness, nutrition, mental health, and productivity.",
+      "topics": ["science", "health-fitness"]
+    },
+    {
+      "id": "making-sense",
+      "name": "Making Sense",
+      "emoji": "🧠",
+      "category": "Philosophy • Science",
+      "description": "Sam Harris explores the most important questions about the human mind, society, and current events through conversations with thought leaders.",
+      "topics": ["philosophy", "science"]
+    },
+    {
+      "id": "knowledge-project",
+      "name": "The Knowledge Project",
+      "emoji": "📚",
+      "category": "Business • Education",
+      "description": "Shane Parrish interviews world-class performers to uncover the frameworks that help them master their craft and live more meaningful lives.",
+      "topics": ["business", "self-improvement"]
+    },
+    {
+      "id": "invest-like-best",
+      "name": "Invest Like the Best",
+      "emoji": "💼",
+      "category": "Business • Investing",
+      "description": "Patrick O'Shaughnessy explores the investing landscape through conversations with the best investors and entrepreneurs in the world.",
+      "topics": ["business", "finance"]
+    },
+    {
+      "id": "deep-questions",
+      "name": "Deep Questions with Cal Newport",
+      "emoji": "🎯",
+      "category": "Productivity • Self-Improvement",
+      "description": "Cal Newport answers questions about cultivating a deep life in a distracted world, covering topics like productivity, focus, and meaningful work.",
+      "topics": ["self-improvement", "productivity"]
+    },
+    {
+      "id": "how-i-built-this",
+      "name": "How I Built This",
+      "emoji": "📊",
+      "category": "Business • Entrepreneurship",
+      "description": "Guy Raz dives into the stories behind some of the world's best known companies. How I Built This weaves a narrative journey about innovators, entrepreneurs and idealists—and the movements they built.",
+      "topics": ["business"]
+    },
+    {
+      "id": "masters-of-scale",
+      "name": "Masters of Scale",
+      "emoji": "💼",
+      "category": "Business • Technology",
+      "description": "Reid Hoffman, co-founder of LinkedIn and legendary Silicon Valley investor, tests his theories of how companies scale from zero to a gazillion with legendary leaders.",
+      "topics": ["business", "technology"]
+    },
+    {
+      "id": "prof-g-pod",
+      "name": "The Prof G Pod",
+      "emoji": "📈",
+      "category": "Business • Marketing",
+      "description": "Scott Galloway offers unfiltered, provocative insights and predictions about business, tech, and what's in store for the future. No mercy. No malice.",
+      "topics": ["business", "technology"]
+    },
+    {
+      "id": "acquired",
+      "name": "Acquired",
+      "emoji": "🚀",
+      "category": "Business • Analysis",
+      "description": "Every company has a story. Learn the playbooks that built the world's greatest companies — and how you can apply them as a founder, operator, or investor.",
+      "topics": ["business", "technology"]
+    },
+    {
+      "id": "my-first-million",
+      "name": "My First Million",
+      "emoji": "📚",
+      "category": "Business • Ideas",
+      "description": "Shaan Puri and Sam Parr brainstorm new business ideas based on trends and opportunities in the market, sharing insights from their own business ventures.",
+      "topics": ["business"]
+    }
+  ]
+}

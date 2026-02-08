@@ -1,0 +1,47 @@
+---
+layout: base
+title: People
+permalink: /people/
+---
+
+<section class="page-header">
+    <div class="container">
+        <h1>People</h1>
+        <p>Discover podcast recommendations from influential people across various industries</p>
+    </div>
+</section>
+
+<section class="category-section">
+    <div class="container">
+        <div class="category-header">
+            <h2 class="category-title">All</h2>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="scrollCarousel('all', -1)">‹</button>
+            <div class="people-carousel" id="carousel-all">
+                {% for person in people.people %}
+                <a href="/people/{{ person.id }}" class="person-card">
+                    <div class="person-portrait">{{ person.initials }}</div>
+                    <h3 class="person-name">{{ person.name }}</h3>
+                    <p class="person-description">{{ person.category }}</p>
+                    <p class="person-count">{{ person.podcasts | length }} recommendations</p>
+                </a>
+                {% endfor %}
+            </div>
+            <button class="carousel-btn next" onclick="scrollCarousel('all', 1)">›</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    function scrollCarousel(category, direction) {
+        const carousel = document.getElementById(`carousel-${category}`);
+        const scrollAmount = 600;
+        
+        if (direction === 1) {
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+    }
+</script>

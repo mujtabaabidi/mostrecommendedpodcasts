@@ -1,0 +1,104 @@
+---
+layout: base
+title: Most Recommended Podcasts – Discover podcasts recommended by people worth listening to
+permalink: /
+---
+
+<section class="hero">
+    <div class="container">
+        <h1>Discover podcasts recommended by people worth listening to</h1>
+        <div class="search-box">
+            <input type="text" placeholder="Search podcasts, topics, people" />
+            <button type="submit">Search</button>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Featured People</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
+            <div class="carousel" id="peopleCarousel">
+                {% for person in people.people %}
+                <a href="/people/{{ person.id }}" class="person-card">
+                    <div class="person-image">{{ person.initials }}</div>
+                    <h3>{{ person.name }}</h3>
+                </a>
+                {% endfor %}
+            </div>
+            <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Featured Topics</h2>
+        <div class="topics-grid">
+            {% for topic in topics.topics %}
+            <a href="/topics/{{ topic.id }}" class="topic-card">
+                <h3>{{ topic.name }}</h3>
+                <div class="podcast-previews">
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Featured Lists</h2>
+        <div class="lists-grid">
+            <a href="/lists#major-publications" class="list-card">
+                <h3>Major Publications</h3>
+                <div class="podcast-previews">
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                </div>
+            </a>
+            <a href="/lists#social-media" class="list-card">
+                <h3>Social Media</h3>
+                <div class="podcast-previews">
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                </div>
+            </a>
+            <a href="/lists#industry" class="list-card">
+                <h3>Industry</h3>
+                <div class="podcast-previews">
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                </div>
+            </a>
+            <a href="/lists#enthusiasts" class="list-card">
+                <h3>Enthusiasts</h3>
+                <div class="podcast-previews">
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                    <div class="podcast-thumb"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    function scrollCarousel(direction) {
+        const carousel = document.getElementById('peopleCarousel');
+        const scrollAmount = 400;
+        
+        if (direction === 1) {
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+    }
+</script>

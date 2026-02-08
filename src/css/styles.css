@@ -1,0 +1,23 @@
+/* Copy your existing CSS from index.html here */
+/* For now, this is a placeholder - you'll copy your styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Add rest of your CSS from your current site */

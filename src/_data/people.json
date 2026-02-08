@@ -1,0 +1,94 @@
+{
+  "people": [
+    {
+      "id": "tim-ferriss",
+      "name": "Tim Ferriss",
+      "initials": "TF",
+      "category": "Entrepreneur",
+      "bio": "Tim Ferriss is an American entrepreneur, investor, author, podcaster, and lifestyle guru. He is known for his 4-Hour self-help book series and hosts one of the most popular podcasts in the world, 'The Tim Ferriss Show.'",
+      "topics": ["business", "self-improvement", "health-fitness", "technology"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "naval-ravikant",
+      "name": "Naval Ravikant",
+      "initials": "NR",
+      "category": "Entrepreneur",
+      "bio": "Naval Ravikant is an entrepreneur, angel investor, and philosopher. He is the co-founder of AngelList and has invested in over 200 companies including Uber, Twitter, and Yammer.",
+      "topics": ["business", "self-improvement", "philosophy", "technology"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "brene-brown",
+      "name": "Brené Brown",
+      "initials": "BB",
+      "category": "Academic",
+      "bio": "Brené Brown is a research professor at the University of Houston where she holds the Huffington Foundation Endowed Chair. She has spent two decades studying courage, vulnerability, shame, and empathy.",
+      "topics": ["self-improvement", "philosophy", "psychology"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "sam-harris",
+      "name": "Sam Harris",
+      "initials": "SH",
+      "category": "Academic",
+      "bio": "Sam Harris is an American philosopher, neuroscientist, author, and podcast host. His work touches on a wide range of topics including rationality, religion, ethics, free will, neuroscience, and meditation.",
+      "topics": ["philosophy", "science", "self-improvement"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "malcolm-gladwell",
+      "name": "Malcolm Gladwell",
+      "initials": "MG",
+      "category": "Celebrity",
+      "bio": "Malcolm Gladwell is a Canadian journalist, author, and public speaker. He has been a staff writer for The New Yorker since 1996 and has published seven books including The Tipping Point and Outliers.",
+      "topics": ["business", "history", "psychology"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "esther-perel",
+      "name": "Esther Perel",
+      "initials": "EP",
+      "category": "Influencer",
+      "bio": "Esther Perel is a psychotherapist known for her work on human relationships. She has authored two New York Times bestsellers and hosts the podcast 'Where Should We Begin?'",
+      "topics": ["self-improvement", "psychology", "relationships"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "lex-fridman",
+      "name": "Lex Fridman",
+      "initials": "LF",
+      "category": "Academic",
+      "bio": "Lex Fridman is an AI researcher at MIT and host of the Lex Fridman Podcast. His podcast features long-form conversations about science, technology, history, philosophy, and the nature of intelligence.",
+      "topics": ["technology", "science", "philosophy"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "andrew-huberman",
+      "name": "Andrew Huberman",
+      "initials": "AH",
+      "category": "Academic",
+      "bio": "Andrew Huberman is a neuroscientist and tenured professor in the Department of Neurobiology at Stanford University School of Medicine. He hosts the popular Huberman Lab podcast.",
+      "topics": ["science", "health-fitness", "self-improvement"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "simon-sinek",
+      "name": "Simon Sinek",
+      "initials": "SS",
+      "category": "Sports",
+      "bio": "Simon Sinek is a British-American author and motivational speaker. He is best known for popularizing the concept of 'the golden circle' and his TED Talk 'How Great Leaders Inspire Action.'",
+      "topics": ["business", "self-improvement", "leadership"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    },
+    {
+      "id": "ryan-holiday",
+      "name": "Ryan Holiday",
+      "initials": "RH",
+      "category": "Other",
+      "bio": "Ryan Holiday is an American author, marketer, and entrepreneur. He is known for his books on Stoic philosophy including The Obstacle Is The Way and Ego Is The Enemy.",
+      "topics": ["philosophy", "business", "self-improvement"],
+      "podcasts": ["huberman-lab", "making-sense", "knowledge-project", "invest-like-best", "deep-questions"]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "topics": [
+    {
+      "id": "business",
+      "name": "Business",
+      "icon": "💼",
+      "description": "Explore the best business podcasts covering entrepreneurship, startups, leadership, management, finance, and the strategies that drive successful companies."
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "icon": "🔬",
+      "description": "Discover podcasts that explore scientific discoveries, research breakthroughs, and the fascinating world of biology, physics, chemistry, and more."
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "icon": "💻",
+      "description": "Stay informed with podcasts covering tech innovations, software development, artificial intelligence, cybersecurity, and the digital transformation of our world."
+    },
+    {
+      "id": "self-improvement",
+      "name": "Self-Improvement",
+      "icon": "🎯",
+      "description": "Find podcasts focused on personal growth, productivity, mindfulness, habits, goal-setting, and becoming the best version of yourself."
+    },
+    {
+      "id": "history",
+      "name": "History",
+      "icon": "📜",
+      "description": "Journey through time with podcasts that bring historical events, figures, and eras to life with engaging storytelling and expert analysis."
+    },
+    {
+      "id": "philosophy",
+      "name": "Philosophy",
+      "icon": "🤔",
+      "description": "Engage with the big questions about existence, ethics, knowledge, and reason through thoughtful philosophical discussions and debates."
+    }
+  ]
+}
