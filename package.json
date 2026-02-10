@@ -4,9 +4,9 @@
   "description": "Most Recommended Podcasts - 11ty Static Site",
   "main": "index.js",
   "scripts": {
-    "build": "npx @llty/eleventy",
-    "serve": "npx @llty/eleventy --serve",
-    "start": "npx @llty/eleventy --serve"
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "start": "npx @11ty/eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/mujtabaabidi/mostrecommendedpodcasts#readme",
   "devDependencies": {
-    "@11ty/eleventy": "2.0.1"
+    "@11ty/eleventy": "^3.1.2"
   }
 }
