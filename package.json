@@ -4,9 +4,9 @@
   "description": "Most Recommended Podcasts - 11ty Static Site",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
-    "serve": "eleventy --serve",
-    "start": "eleventy --serve"
+    "build": "npx @llty/eleventy",
+    "serve": "npx @llty/eleventy --serve",
+    "start": "npx @llty/eleventy --serve"
   },
   "repository": {
     "type": "git",
