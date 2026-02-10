@@ -198,18 +198,30 @@ nav a:hover {
     flex: 0 0 auto;
     width: 180px;
     text-align: center;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.person-card:hover {
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+    transform: translateY(-2px);
 }
 
 .person-image {
-    width: 180px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     border-radius: 8px;
     background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-    margin: 0 auto 12px;
+    margin: 0 auto 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 700;
     color: #1e3a8a;
     transition: all 0.2s;
@@ -219,13 +231,258 @@ nav a:hover {
 .person-card:hover .person-image {
     border-color: #1e3a8a;
     background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
-    transform: translateY(-4px);
 }
 
 .person-card h3 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: #1e3a8a;
+    margin-bottom: 8px;
+}
+
+.person-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.person-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.person-count {
+    font-size: 13px;
+    color: #1e3a8a;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Person Header (for individual person pages) */
+.person-header {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    color: white;
+}
+
+.person-header-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.person-portrait-large {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    font-weight: 700;
+    color: #1e3a8a;
+    flex-shrink: 0;
+}
+
+.person-info h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.person-industry {
+    font-size: 16px;
+    color: #bfdbfe;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.person-bio {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #e0e7ff;
+}
+
+.topic-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.topic-tag {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.topic-tag:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Page Header (for listing pages) */
+.page-header {
+    padding: 60px 0 40px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 12px;
+}
+
+.page-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* People Carousel (for people listing page) */
+.people-carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 8px 0 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.people-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.person-portrait {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+/* Category Section (for people listing) */
+.category-section {
+    padding: 60px 0;
+}
+
+.category-header {
+    margin-bottom: 32px;
+}
+
+.category-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+}
+
+/* Podcasts Section */
+.podcasts-section {
+    padding: 60px 0;
+}
+
+/* Podcast Row */
+.podcast-row {
+    display: flex;
+    gap: 32px;
+    padding: 24px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+}
+
+.podcast-row:hover {
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+}
+
+.podcast-artwork {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.podcast-details {
+    flex: 1;
+}
+
+.podcast-name {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+}
+
+.podcast-industry {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.podcast-description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.podcast-source {
+    font-size: 13px;
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+/* Topic Header (for individual topic pages) */
+.topic-header {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    color: white;
+    text-align: center;
+}
+
+.topic-icon-large {
+    font-size: 80px;
+    margin-bottom: 24px;
+}
+
+.topic-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.topic-description {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #e0e7ff;
 }
 
 /* Topics Grid */
@@ -256,6 +513,22 @@ nav a:hover {
     font-weight: 600;
     color: #1e3a8a;
     margin-bottom: 20px;
+}
+
+.topic-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.topic-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+/* Topics Section (on topics listing page) */
+.topics-section {
+    padding: 60px 0;
 }
 
 .podcast-previews {
@@ -391,5 +664,26 @@ footer {
 
     .section-title {
         font-size: 24px;
+    }
+    
+    .person-header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .person-info h1 {
+        font-size: 32px;
+    }
+
+    .podcast-row {
+        flex-direction: column;
+    }
+
+    .podcast-artwork {
+        margin: 0 auto;
+    }
+    
+    .topic-header h1 {
+        font-size: 36px;
     }
 }
