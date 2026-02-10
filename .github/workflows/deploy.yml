@@ -23,10 +23,12 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install -g @11ty/eleventy
 
       - name: Build site
-        run: npm run build
+        run: npx eleventy
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
