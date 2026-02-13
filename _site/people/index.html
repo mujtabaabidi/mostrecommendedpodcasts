@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - Most Recommended Podcasts</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+    <div class="container">
+        <div class="header-content">
+            <a href="/" class="logo">MostRecommendedPodcasts</a>
+            <nav>
+                <a href="/people">People</a>
+                <a href="/lists">Lists</a>
+                <a href="/topics">Topics</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    
+    <main>
+        
+<section class="page-header">
+    <div class="container">
+        <h1>People</h1>
+        <p>Discover podcast recommendations from influential people across various industries</p>
+    </div>
+</section>
+
+<section class="category-section">
+    <div class="container">
+        <div class="category-header">
+            <h2 class="category-title">All</h2>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="scrollCarousel('all', -1)">‹</button>
+            <div class="people-carousel" id="carousel-all">
+                
+                <a href="/people/tim-ferriss" class="person-card">
+                    <div class="person-portrait">TF</div>
+                    <h3 class="person-name">Tim Ferriss</h3>
+                    <p class="person-description">Entrepreneur</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/naval-ravikant" class="person-card">
+                    <div class="person-portrait">NR</div>
+                    <h3 class="person-name">Naval Ravikant</h3>
+                    <p class="person-description">Entrepreneur</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/brene-brown" class="person-card">
+                    <div class="person-portrait">BB</div>
+                    <h3 class="person-name">Brené Brown</h3>
+                    <p class="person-description">Academic</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/sam-harris" class="person-card">
+                    <div class="person-portrait">SH</div>
+                    <h3 class="person-name">Sam Harris</h3>
+                    <p class="person-description">Academic</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/malcolm-gladwell" class="person-card">
+                    <div class="person-portrait">MG</div>
+                    <h3 class="person-name">Malcolm Gladwell</h3>
+                    <p class="person-description">Celebrity</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/esther-perel" class="person-card">
+                    <div class="person-portrait">EP</div>
+                    <h3 class="person-name">Esther Perel</h3>
+                    <p class="person-description">Influencer</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/lex-fridman" class="person-card">
+                    <div class="person-portrait">LF</div>
+                    <h3 class="person-name">Lex Fridman</h3>
+                    <p class="person-description">Academic</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/andrew-huberman" class="person-card">
+                    <div class="person-portrait">AH</div>
+                    <h3 class="person-name">Andrew Huberman</h3>
+                    <p class="person-description">Academic</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/simon-sinek" class="person-card">
+                    <div class="person-portrait">SS</div>
+                    <h3 class="person-name">Simon Sinek</h3>
+                    <p class="person-description">Sports</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+                <a href="/people/ryan-holiday" class="person-card">
+                    <div class="person-portrait">RH</div>
+                    <h3 class="person-name">Ryan Holiday</h3>
+                    <p class="person-description">Other</p>
+                    <p class="person-count">5 recommendations</p>
+                </a>
+                
+            </div>
+            <button class="carousel-btn next" onclick="scrollCarousel('all', 1)">›</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    function scrollCarousel(category, direction) {
+        const carousel = document.getElementById(`carousel-${category}`);
+        const scrollAmount = 600;
+        
+        if (direction === 1) {
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+    }
+</script>
+
+    </main>
+    
+    <footer>
+    <div class="container">
+        <div class="footer-logo-placeholder">
+            [LOGO PLACEHOLDER]
+        </div>
+        <nav class="footer-nav">
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/submit">Submit a Recommendation</a>
+        </nav>
+        <p class="copyright">© 2024 Most Recommended Podcasts. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
